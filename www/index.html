@@ -1,34 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/searchableSelect/searchableSelect.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
+<!-- your app's js -->
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/Factories/EntityFactory.js"></script>
+</head>
+<style>
+.optionList {
+	position: absolute;
+	width: 100%;
+	z-index: 100;
+	/* height:200px;*/
+}
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
-  </body>
+.error-message {
+	color: red;
+}
+
+input.ng-dirty.ng-invalid {
+	border-color: red;
+}
+
+.goodBMI {
+	color: green;
+}
+
+.badBMI {
+	color: red;
+}
+</style>
+<body ng-app="starter">
+
+	<ion-pane> <ion-header-bar class="bar-stable">
+	<h1 class="title">Simple Converter</h1>
+	</ion-header-bar> <ion-content> <br />
+	<div ng-controller="main">
+		<div>
+			<ion-select label="Convert:" label-field="nmPlaca"
+				provider="veiculos" ng-model="entity" ng-change="loadUnits()"/>
+			</div>
+			<br />
+			<br />
+		<form name="userInput" novalidate>
+			<br /> <br />
+			<center>
+				From: <select ng-init="srcUnit=unitsList[0]" ng-model="srcUnit"
+						ng-options="unit.label for unit in unitsList"></select> To:<select
+						ng-init="destUnit=unitsList[1]" ng-model="destUnit"
+						ng-options="unit.label for unit in unitsList"></select>
+			</center>
+
+			<!-- Place for converted value-->
+			<div>
+				<br />
+				<h3>
+					<center>
+						Value of {{txtValue}} {{srcUnit.label}} equals {{txtValue}}
+					</center>
+				</h3>
+				<br />
+			</div>
+			<!-- Place for BMI-->
+
+
+			<button class="button button-block button-stable"
+					on-tap="calculateBMI()">Calculate</button>
+			<button class="button button-block button-stable"
+					on-tap="resetForm()">Reset</button>
+		</form>
+	</div>
+	</ion-content> </ion-pane>
+</body>
 </html>
