@@ -4,8 +4,8 @@ var cntl = angular.module('entityConverterControllers', [ 'ionicSelect',
 cntl.controller('main', function($scope, EntityFactory) {
 
 	var data = EntityFactory.entities;
-	$scope.veiculos = data;
 
+	$scope.veiculos = data;
 	$scope.testa = function() {
 		alert($scope.veiculo.nmPlaca);
 	}
@@ -13,17 +13,24 @@ cntl.controller('main', function($scope, EntityFactory) {
 	$scope.getUnits = function() {
 		getUnitsforScope($scope);
 	}
+
+	$scope.convertEntity = function() {
+		convertEntity($scope);
+	}
 });
 
 /* Business Logic starts here */
+var entity;
 function getUnitsforScope($scope) {
-	if ($scope.entity.label == "Distance") {
-		$scope.unitsList = [ {
-			label : 'Kilometers'
-		}, {
-			label : 'Miles'
-		}, {
-			label : 'Nautical Miles'
-		} ]
+	console.log("Inside getUnits for scope");
+	if ($scope.entity.nmPlaca == "Distance/Length") {
+		entity = new DistanceFactory();
+		console.log("Created Distance Factory");
+		$scope.unitsList = entity.units;
 	}
+}
+
+function convertEntity($scope) {
+	var convertdValue = entity.convert($scope.srcUnit, $scope.destUnit);
+	$scope.txtValue = convertdValue;
 }

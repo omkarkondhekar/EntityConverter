@@ -24,6 +24,7 @@
 <script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/Factories/EntityFactory.js"></script>
+<script src="js/Factories/EntityFactory/DistanceFactory.js"></script>
 </head>
 <style>
 .optionList {
@@ -57,26 +58,33 @@ input.ng-dirty.ng-invalid {
 	<div ng-controller="main">
 		<div>
 			<ion-select label="Convert:" label-field="nmPlaca"
-				provider="veiculos" ng-model="entity" ng-change="loadUnits()"/>
-			</div>
-			<br />
-			<br />
+				provider="veiculos" ng-model="entity" ng-change="getUnits()" />
+		</div>
+		<br /> <br />
 		<form name="userInput" novalidate>
-			<br /> <br />
+			<label class="item item-input item-floating-label"> <span
+				class="input-label">Value to be converted</span> <input
+				type="number" name="txtValue" placeholder="Value to be converted"
+				ng-model="txtValue" ng-required="true" ng-pattern="/^\d*[\.]?\d+$/"
+				ng-change="hideBMI()"> <span class="error-message"
+				ng-show="userInput.txtHeight.$dirty && userInput.txtHeight.$error.required">This
+					is required field</span> <span class="error-message"
+				ng-show="userInput.txtHeight.$dirty && userInput.txtHeight.$invalid && !userInput.txtHeight.$error.required">
+					Height should contain numbers and at max one decimal point</span>
+			</label> <br /> <br />
 			<center>
-				From: <select ng-init="srcUnit=unitsList[0]" ng-model="srcUnit"
-						ng-options="unit.label for unit in unitsList"></select> To:<select
-						ng-init="destUnit=unitsList[1]" ng-model="destUnit"
-						ng-options="unit.label for unit in unitsList"></select>
+				From: <select ng-init="srcUnit=unitsList[1]" ng-model="srcUnit"
+					ng-options="unit.label for unit in unitsList"></select> To:<select
+					ng-init="destUnit=unitsList[1]" ng-model="destUnit"
+					ng-options="unit.label for unit in unitsList"></select>
 			</center>
 
 			<!-- Place for converted value-->
 			<div>
 				<br />
 				<h3>
-					<center>
-						Value of {{txtValue}} {{srcUnit.label}} equals {{txtValue}}
-					</center>
+					<center>Value of {{txtValue}} {{srcUnit.label}} equals
+						{{txtValue}} {{destUnit.label}}</center>
 				</h3>
 				<br />
 			</div>
@@ -84,9 +92,9 @@ input.ng-dirty.ng-invalid {
 
 
 			<button class="button button-block button-stable"
-					on-tap="calculateBMI()">Calculate</button>
+				on-tap="convertEntity()">Calculate</button>
 			<button class="button button-block button-stable"
-					on-tap="resetForm()">Reset</button>
+				on-tap="resetForm()">Reset</button>
 		</form>
 	</div>
 	</ion-content> </ion-pane>

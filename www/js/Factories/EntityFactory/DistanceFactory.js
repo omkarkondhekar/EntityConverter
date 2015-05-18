@@ -1,96 +1,102 @@
-var entityFactory = angular.module('EntityFactory', []);
-entityFactory.factory('EntityFactory', function() {
-	return {
-		entities : [ {
-			id : 1,
-			nmPlaca : 'Acceleration - Linear'
-		}, {
-			id : 2,
-			nmPlaca : 'Angle'
-		}, {
-			id : 3,
-			nmPlaca : 'Area'
-		}, {
-			id : 4,
-			nmPlaca : 'Currency'
-		}, {
-			id : 5,
-			nmPlaca : 'Data Size'
-		}, {
-			id : 6,
-			nmPlaca : 'Data Transfer Rate'
-		}, {
-			id : 7,
-			nmPlaca : 'Density'
-		}, {
-			id : 8,
-			nmPlaca : 'Distance/Length'
-		}, {
-			id : 9,
-			nmPlaca : 'Electric Current'
-		}, {
-			id : 10,
-			nmPlaca : 'Energy'
-		}, {
-			id : 11,
-			nmPlaca : 'Flow Rate for Mass'
-		}, {
-			id : 12,
-			nmPlaca : 'Flow Rate for Volume'
-		}, {
-			id : 13,
-			nmPlaca : 'Force'
-		}, {
-			id : 14,
-			nmPlaca : 'Frequency'
-		}, {
-			id : 15,
-			nmPlaca : 'Fuel Consuption'
-		}, {
-			id : 16,
-			nmPlaca : 'Light - Illuminance'
-		}, {
-			id : 17,
-			nmPlaca : 'Light - Luminance'
-		}, {
-			id : 18,
-			nmPlaca : 'Mass'
-		}, {
-			id : 19,
-			nmPlaca : 'Magnetic Field Strength'
-		}, {
-			id : 20,
-			nmPlaca : 'Number Base'
-		}, {
-			id : 21,
-			nmPlaca : 'Power'
-		}, {
-			id : 22,
-			nmPlaca : 'Pressure'
-		}, {
-			id : 23,
-			nmPlaca : 'Radiation Dose'
-		}, {
-			id : 24,
-			nmPlaca : 'Radioactivity'
-		}, {
-			id : 25,
-			nmPlaca : 'Sound'
-		}, {
-			id : 26,
-			nmPlaca : 'Speed'
-		}, {
-			id : 27,
-			nmPlaca : 'Temperature'
-		}, {
-			id : 28,
-			nmPlaca : 'Time'
-		}, {
-			id : 29,
-			nmPlaca : 'Torque'
-		}, {
-			id : 30,
-			nmPlaca : 'Volume'
-		} ]
-	}
-});
+function DistanceFactory() {
+	this.units = [ {
+		id : 1,
+		label : 'Angstrom',
+		unitToCentral : 1.0e-10,
+		centralToUnit : 1.0e10
+	}, {
+		id : 2,
+		label : 'Astronomical Unit'
+	}, {
+		id : 3,
+		label : 'Cable (UK)'
+	}, {
+		id : 4,
+		label : 'Cable (US)'
+	}, {
+		id : 5,
+		label : 'Caliber'
+	}, {
+		id : 6,
+		label : 'Centimeter'
+	}, {
+		id : 7,
+		label : 'Chain'
+	}, {
+		id : 8,
+		label : 'Cubit'
+	}, {
+		id : 9,
+		label : 'Fathom'
+	}, {
+		id : 10,
+		label : 'Foot'
+	}, {
+		id : 11,
+		label : 'Furlong'
+	}, {
+		id : 12,
+		label : 'Hand'
+	}, {
+		id : 13,
+		label : 'Inch'
+	}, {
+		id : 14,
+		label : 'Kilometer'
+	}, {
+		id : 15,
+		label : 'League'
+	}, {
+		id : 16,
+		label : 'Light Year'
+	}, {
+		id : 17,
+		label : 'Link'
+	}, {
+		id : 18,
+		label : 'Meter'
+	}, {
+		id : 19,
+		label : 'Micrometer'
+	}, {
+		id : 20,
+		label : 'Micron'
+	}, {
+		id : 21,
+		label : 'Mile'
+	}, {
+		id : 22,
+		label : 'Millimeter'
+	}, {
+		id : 23,
+		label : 'Nanometer'
+	}, {
+		id : 24,
+		label : 'Nautical Mile'
+	}, {
+		id : 25,
+		label : 'Parsec'
+	}, {
+		id : 26,
+		label : 'Rod'
+	}, {
+		id : 27,
+		label : 'Yard'
+	} ];
+	this.centralUnit = "Meter";
+
+}
+
+DistanceFactory.prototype.convert = function(srcUnit, destUnit) {
+var tempValue=convert();
+}
+
+/*
+ * var distanceFactory = angular.module('DistanceFactory', ['EntityFactory']);
+ * var tempValueInCentalUnits; var centralUnit="Meter";
+ * 
+ * var
+ * 
+ * distanceFactory.factory('DistanceFactory', function(EntityFactory) { return {
+ * getUnits : units } });
+ */

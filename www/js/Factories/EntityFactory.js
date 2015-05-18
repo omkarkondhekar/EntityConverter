@@ -1,4 +1,5 @@
 var entityFactory = angular.module('EntityFactory', []);
+//var distfact=new DistanceFactory();
 entityFactory.factory('EntityFactory', function() {
 	return {
 		entities : [ {
@@ -24,7 +25,8 @@ entityFactory.factory('EntityFactory', function() {
 			nmPlaca : 'Density'
 		}, {
 			id : 8,
-			nmPlaca : 'Distance/Length'
+			nmPlaca : 'Distance/Length',
+			//factory : new DistanceFactory()
 		}, {
 			id : 9,
 			nmPlaca : 'Electric Current'
