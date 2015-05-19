@@ -1,5 +1,5 @@
 var entityFactory = angular.module('EntityFactory', []);
-//var distfact=new DistanceFactory();
+// var distfact=new DistanceFactory();
 entityFactory.factory('EntityFactory', function() {
 	return {
 		entities : [ {
@@ -13,85 +13,81 @@ entityFactory.factory('EntityFactory', function() {
 			nmPlaca : 'Area'
 		}, {
 			id : 4,
-			nmPlaca : 'Currency'
-		}, {
-			id : 5,
 			nmPlaca : 'Data Size'
 		}, {
-			id : 6,
+			id : 5,
 			nmPlaca : 'Data Transfer Rate'
 		}, {
-			id : 7,
+			id : 6,
 			nmPlaca : 'Density'
 		}, {
-			id : 8,
-			nmPlaca : 'Distance/Length',
-			//factory : new DistanceFactory()
+			id : 7,
+			nmPlaca : 'Distance/Length'
 		}, {
-			id : 9,
+			id : 8,
 			nmPlaca : 'Electric Current'
 		}, {
-			id : 10,
+			id : 9,
 			nmPlaca : 'Energy'
 		}, {
-			id : 11,
+			id : 10,
 			nmPlaca : 'Flow Rate for Mass'
 		}, {
-			id : 12,
+			id : 11,
 			nmPlaca : 'Flow Rate for Volume'
 		}, {
-			id : 13,
+			id : 12,
 			nmPlaca : 'Force'
 		}, {
-			id : 14,
+			id : 13,
 			nmPlaca : 'Frequency'
 		}, {
-			id : 15,
+			id : 14,
 			nmPlaca : 'Fuel Consumption'
 		}, {
-			id : 16,
+			id : 15,
 			nmPlaca : 'Light - Illuminance'
 		}, {
-			id : 17,
+			id : 16,
 			nmPlaca : 'Light - Luminance'
 		}, {
-			id : 18,
+			id : 17,
 			nmPlaca : 'Mass'
 		}, {
-			id : 19,
+			id : 18,
 			nmPlaca : 'Magnetic Field Strength'
 		}, {
-			id : 20,
-			nmPlaca : 'Number Base'
+			id : 19,
+			nmPlaca : 'Number base'
 		}, {
-			id : 21,
+			id : 20,
 			nmPlaca : 'Power'
 		}, {
-			id : 22,
+			id : 21,
 			nmPlaca : 'Pressure'
 		}, {
-			id : 23,
+			id : 22,
 			nmPlaca : 'Radiation Dose'
 		}, {
-			id : 24,
+			id : 23,
 			nmPlaca : 'Radioactivity'
 		}, {
-			id : 25,
+			id : 24,
 			nmPlaca : 'Sound'
 		}, {
-			id : 26,
+			id : 25,
 			nmPlaca : 'Speed'
 		}, {
-			id : 27,
+			id : 26,
 			nmPlaca : 'Temperature'
 		}, {
-			id : 28,
+			id : 27,
 			nmPlaca : 'Time'
 		}, {
-			id : 29,
+			id : 28,
 			nmPlaca : 'Torque'
 		}, {
-			id : 30,
+			id : 29,
 			nmPlaca : 'Volume'
 		} ]
 	}

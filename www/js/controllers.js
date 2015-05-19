@@ -32,7 +32,13 @@ function getUnitsforScope($scope) {
 
 function convertEntity($scope) {
 	console.log($scope.destUnit);
-	var convertdValue = entity.convert($scope.txtValue, $scope.srcUnit,
+	var convertdValue = convert($scope.txtValue, $scope.srcUnit,
 			$scope.destUnit);
 	$scope.convertdValue = convertdValue;
+}
+
+function convert(value, srcUnit, destUnit) {
+	console.log("Value=" + value + " " + "Source=" + srcUnit + " " + "Dest="
+			+ destUnit);
+	return (value * srcUnit.unitToCentral) * destUnit.centralToUnit;
 }
