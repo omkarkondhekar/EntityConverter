@@ -31,6 +31,8 @@ function getUnitsforScope($scope) {
 }
 
 function convertEntity($scope) {
-	var convertdValue = entity.convert($scope.srcUnit, $scope.destUnit);
-	$scope.txtValue = convertdValue;
+	console.log($scope.destUnit);
+	var convertdValue = entity.convert($scope.txtValue, $scope.srcUnit,
+			$scope.destUnit);
+	$scope.convertdValue = convertdValue;
 }
